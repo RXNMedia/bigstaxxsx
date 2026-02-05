@@ -67,7 +67,7 @@ body{
   color:var(--text);
 }
 .brand img{
-  height:68px;           /* ← MAIN SIZE CHANGE */
+  height:100px;           /* ← MAIN SIZE CHANGE */
   width:auto;
   display:block;
   filter:
