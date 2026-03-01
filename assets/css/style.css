@@ -298,6 +298,9 @@ body {
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-media::before {
@@ -311,6 +314,18 @@ body {
   border: 3px solid var(--accent);
   border-radius: 50%;
   opacity: 0.3;
+  z-index: 0;
+}
+
+/* Spotify Embed in Hero */
+.hero-media iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 352px;
+  border: none;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-badge {
@@ -380,6 +395,20 @@ body {
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+/* Spotify Embed Container */
+.embed {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.embed iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 12px;
 }
 
 .grid-3 {
@@ -519,6 +548,14 @@ body {
   
   .hero-right {
     min-height: 300px;
+  }
+  
+  .hero-media iframe {
+    min-height: 300px;
+  }
+  
+  .embed iframe {
+    height: 400px;
   }
 }
 
