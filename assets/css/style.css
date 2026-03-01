@@ -80,6 +80,7 @@ body {
   gap: 1rem;
   text-decoration: none;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .brand:hover {
@@ -105,6 +106,8 @@ body {
   display: flex;
   gap: 2rem;
   align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav a {
@@ -123,6 +126,40 @@ body {
 .nav a:hover {
   color: var(--accent);
   background: var(--btn-hover);
+}
+
+/* Social Media Icons */
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Glitch effect */
@@ -555,6 +592,21 @@ body {
   .nav a {
     font-size: 1.2rem;
     padding: 1rem 2rem;
+  }
+  
+  /* Social icons on mobile - keep visible in header */
+  .socials {
+    margin-left: 0;
+  }
+  
+  .socials a {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .socials svg {
+    width: 18px;
+    height: 18px;
   }
   
   /* Logo adjustment for mobile */
