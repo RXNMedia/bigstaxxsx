@@ -528,6 +528,164 @@ body {
    FOOTER
    =========================== */
 
+/* Email Signup Section */
+.email-signup {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3rem;
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.email-signup h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.email-signup p {
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.email-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.email-form input[type="email"],
+.email-form input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.email-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.email-form input::placeholder {
+  color: var(--text-dim);
+}
+
+.email-form button {
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.email-form button:hover {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 12px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.email-form button:active {
+  transform: translateY(0);
+}
+
+/* Compact Footer Signup */
+.footer-signup {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.footer-signup-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-signup-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-signup-text h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-signup-text p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.footer-signup-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-signup-form input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.footer-signup-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.footer-signup-form button {
+  padding: 0.8rem 2rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.footer-signup-form button:hover {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
 .footer {
   border-top: 1px solid var(--border);
   padding: 2rem 0;
@@ -685,6 +843,38 @@ body {
   
   .tile {
     padding: 1.5rem;
+  }
+  
+  /* Email signup mobile */
+  .email-signup {
+    padding: 2rem 1.5rem;
+  }
+  
+  .email-form {
+    flex-direction: column;
+  }
+  
+  .email-form input {
+    min-width: 100%;
+  }
+  
+  .email-form button {
+    width: 100%;
+  }
+  
+  .footer-signup-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-signup-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .footer-signup-form input,
+  .footer-signup-form button {
+    width: 100%;
   }
 }
 
