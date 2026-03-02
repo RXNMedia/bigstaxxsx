@@ -43,7 +43,7 @@
     <div class="hero-grid">
       <section class="card hero-left">
         <div class="kicker">BIGSTAXXSX</div>
-        <h1 class="h1">West raised. <span class="stroke">Country made.</span></h1>
+        <h1 class="h1">Heavy vibes. <span class="stroke">No skips.</span></h1>
         <p class="sub">New drops, visuals, merch, and tour dates — all in one spot.</p>
 
         <div class="btns">
@@ -83,7 +83,7 @@
     <div class="grid-3">
       <div class="tile">
         <div class="title">Music</div>
-        <p>Spotify / Apple embeds.</p>
+        <p>Spotify / Apple / SoundCloud embeds.</p>
         <a href="music.html">Open Music</a>
       </div>
       <div class="tile">
@@ -99,6 +99,22 @@
     </div>
   </section>
 
+  <!-- Email Signup Section -->
+  <section class="container email-signup">
+    <h3>Stay in the Loop</h3>
+    <p>New music, shows, and exclusive drops straight to your inbox. No spam, just heavy vibes.</p>
+    
+    <!-- MailerLite Form - Replace FORM_ID with your actual MailerLite form ID -->
+    <div class="ml-embedded" data-form="YTiceo"></div>
+    
+    <!-- Fallback form (works without MailerLite script) -->
+    <form class="email-form" id="signup-form" style="display:none;">
+      <input type="text" name="name" placeholder="First Name (optional)">
+      <input type="email" name="email" placeholder="Email Address" required>
+      <button type="submit">JOIN THE LIST</button>
+    </form>
+  </section>
+
   <footer class="footer">
     <div class="container">
       © <span id="y"></span> BIGSTAXXSX • Built & maintained by RXNMedia
@@ -107,5 +123,15 @@
 
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="assets/js/main.js"></script>
+  
+  <!-- MailerLite Universal Script -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2153496');
+  </script>
+  <!-- End MailerLite Universal Script -->
 </body>
 </html>
