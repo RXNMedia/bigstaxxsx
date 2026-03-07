@@ -32,7 +32,7 @@ body {
   /* Full Page Background Image - FIXED PATH */
   background-image: url('../../images/background.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 30%; /* Shows upper portion - face visible */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: var(--bg); /* Fallback color */
