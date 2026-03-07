@@ -24,7 +24,6 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   position: relative;
@@ -36,9 +35,10 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-color: var(--bg); /* Fallback color */
 }
 
-/* Dark overlay for text readability - BIGSTAXXSX dark aesthetic */
+/* Dark overlay for text readability - REDUCED opacity to show background */
 body::before {
   content: '';
   position: fixed;
@@ -46,7 +46,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.85); /* 85% dark overlay */
+  background: rgba(10, 10, 10, 0.60); /* Reduced to 60% - background now 40% visible */
   z-index: 0;
   pointer-events: none;
 }
@@ -445,6 +445,248 @@ body::before {
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.8; }
+}
+
+/* ===========================
+   TOUR PAGE
+   =========================== */
+
+.tour-section {
+  margin-bottom: 4rem;
+}
+
+.tour-section-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+/* Tour Date Card */
+.tour-date {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.tour-date:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 217, 255, 0.15);
+}
+
+.tour-date.exclusive {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, var(--card-bg) 50%);
+}
+
+/* Tour Date Header - Badges */
+.tour-date-header {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tour-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tour-badge.exclusive-badge {
+  background: linear-gradient(135deg, var(--accent) 0%, #00b8d4 100%);
+  color: var(--bg);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.tour-badge.invite-only {
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Tour Date Content */
+.tour-date-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.tour-date-info {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex: 1;
+}
+
+.tour-date-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 1rem;
+  background: rgba(0, 217, 255, 0.1);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+}
+
+.tour-month {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.tour-day {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text);
+}
+
+.tour-details {
+  flex: 1;
+}
+
+.tour-event-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tour-venue {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  margin-bottom: 0.25rem;
+}
+
+.tour-time {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Tour Date Action */
+.tour-date-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tour-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tour-status svg {
+  fill: var(--accent);
+}
+
+/* Tour Date Description */
+.tour-date-description {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Tour Placeholder */
+.tour-placeholder {
+  background: var(--card-bg);
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.tour-placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tour-placeholder h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tour-placeholder p {
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .tour-date-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .tour-date-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  .tour-date-main {
+    min-width: 70px;
+  }
+  
+  .tour-day {
+    font-size: 2rem;
+  }
+  
+  .tour-event-name {
+    font-size: 1.25rem;
+  }
+  
+  .tour-date-action {
+    width: 100%;
+  }
+  
+  .tour-status {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .tour-placeholder {
+    padding: 3rem 1.5rem;
+  }
 }
 
 /* ===========================
