@@ -1,0 +1,52 @@
+name: Assemble Our Song MP3
+
+on:
+  push:
+    branches:
+      - feature/our-song-free-download-2026-10-08
+    paths:
+      - 'downloads/.parts/**'
+      - '.github/workflows/assemble-our-song.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release draft
+        uses: actions/checkout@v4
+
+      - name: Assemble and verify release MP3
+        shell: bash
+        run: |
+          set -euo pipefail
+          parts=(
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part01
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part02
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part03
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part04
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part05
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part06
+            downloads/.parts/BIGSTAXXSX-Our-Song.mp3.part07
+          )
+          for part in "${parts[@]}"; do test -s "$part"; done
+          cat "${parts[@]}" > downloads/BIGSTAXXSX-Our-Song.mp3
+          printf '%s  %s\n' \
+            'c6f28d8846ac10e29660b9db3864437bed54a04d7c12ed3694a0c27bc21dd049' \
+            'downloads/BIGSTAXXSX-Our-Song.mp3' | sha256sum -c -
+
+      - name: Save verified MP3 and remove transfer pieces
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add downloads/BIGSTAXXSX-Our-Song.mp3
+          git rm -r downloads/.parts
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add verified 320 kbps Our Song MP3 for direct download'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
