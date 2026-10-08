@@ -1261,6 +1261,17 @@ body::before {
 .release-action {
   white-space: normal;
 }
+.release-player {
+  display: block;
+  width: min(100%, 480px);
+  height: 48px;
+  margin: 0 0 1rem;
+  accent-color: var(--accent);
+  color-scheme: dark;
+}
+@media (max-width: 600px) {
+  .release-player { margin-inline: auto; }
+}
 .release-pending {
   border-color: rgba(255,255,255,.23);
   opacity: .75;
